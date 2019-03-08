@@ -97,7 +97,7 @@
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script src="//d3js.org/d3-geo-projection.v1.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
-<div id="map-holder"></div>
+
     <script type="text/javascript">
 
       // DEFINE VARIABLES
@@ -113,11 +113,21 @@
       // DEFINE FUNCTIONS/OBJECTS
       // Define map projection
       var projection = d3
-        .geoInterrupt(
-          d3.geoSinusoidalRaw()
-          .center([0, 15]) // set centre to further North as we are cropping more off bottom of map
-          .scale([w / (2 * Math.PI)]) // scale to fit group width
-          .translate([w / 2, h / 2]) // ensure centred in group
+        .geoInterrupt(d3.geoSinusoidalRaw(
+          [[ // northern hemisphere
+        [[-180,   0], [-120,  90], [ -60,   0]],
+        [[ -60,   0], [   0,  90], [  60,   0]],
+        [[  60,   0], [ 120,  90], [ 180,   0]]
+      ], [ // southern hemisphere
+        [[-180,   0], [-180, -90], [ -120,  0]],
+        [[-120,   0], [ -60, -90], [   0,   0]],
+        [[   0,   0], [  60, -90], [ 120,   0]],
+        [[ 120,   0], [ 180, -90], [ 180,   0]]
+      ]])
+
+          .scale(152) // scale to fit group width
+          .translate([width/ 2, height / 2])
+          .precision(0.01)
         )
       ;
 
@@ -228,11 +238,11 @@
 
       // create an SVG
       var svg = d3
-        .select("#map-holder")
+        .select("#svg")
         .append("svg")
         // set to the same size as the "map-holder" div
-        .attr("width", $("#map-holder").width())
-        .attr("height", $("#map-holder").height())
+        .attr("width", $("#svg").width())
+        .attr("height", $("#svg").height())
         // add zoom functionality
         .call(zoom)
       ;
