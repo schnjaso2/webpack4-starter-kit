@@ -98,77 +98,55 @@
 </style>
 <svg width="1292" height="777"></svg>
 <div id="svg" class="container">loading data...</div>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+var width = 960,
+    height = 580;
+var color = d3.scale.category10();
+var projection = d3.geo.kavrayskiy7()
+    .scale(170)
+    .translate([width / 2, height / 2])
+    .precision(.1);
+var path = d3.geo.path()
+    .projection(projection);
+var graticule = d3.geo.graticule();
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+svg.append("defs").append("path")
+    .datum({type: "Sphere"})
+    .attr("id", "sphere")
+    .attr("d", path);
+svg.append("use")
+    .attr("class", "stroke")
+    .attr("xlink:href", "#sphere");
+svg.append("use")
+    .attr("class", "fill")
+    .attr("xlink:href", "#sphere");
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+  var countries = topojson.feature(world, world.objects.countries).features,
+      neighbors = topojson.neighbors(world.objects.countries.geometries);
+  svg.selectAll(".country")
+      .data(countries)
+    .enter().insert("path", ".graticule")
+      .attr("class", "country")
+      .attr("d", path)
+      .style("fill", function(d, i) { return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); });
+  svg.insert("path", ".graticule")
+      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+      .attr("class", "boundary")
+      .attr("d", path);
+});
+d3.select(self.frameElement).style("height", height + "px");
 
-    <script>
-
-      //Versor Dragging projection from D3
-      //https://bl.ocks.org/mbostock/7ea1dde508cec6d2d95306f92642bc42
-      var projection =  d3.geoOrthographic()
-                          .scale(148)
-                          .precision(.1);
-
-      //convert to a maptalks projection object
-      var proj = {
-        project : function (c) {
-          var pc = projection([c.x, c.y]);
-          return new maptalks.Coordinate(pc[0], pc[1]);
-        },
-        unproject : function (pc) {
-          var c = projection.invert([pc.x, (pc.y)]);
-          if (!c || isNaN(c[0]) || isNaN(c[1])) {
-            return null;
-          }
-          return new maptalks.Coordinate(c);
-        }
-      };
-
-      var min = proj.project(new maptalks.Coordinate(-180, -90)),
-        max = proj.project(new maptalks.Coordinate(180, 90)),
-        fullExtent = {
-          'top'   : max.y,
-          'left'  : min.x,
-          'right' : max.x,
-          'bottom' : min.y
-        };
-
-      d3.json('world-50m.json', function (error, world) {
-        if (error) throw error;
-        //initialize map with a customized projection
-        var map = new maptalks.Map('map', {
-          center:     [0, 0],
-          centerCross : true,
-          zoom:  2,
-          spatialReference:{
-            'projection': proj,
-            'resolutions': (function () {
-              var resolutions = [];
-              for (var i = 0; i < 10; i++) {
-                resolutions[i] = 4 / Math.pow(2, i);
-              }
-              return resolutions;
-            })(),
-            'fullExtent': fullExtent
-          }
-        });
-        var featureCollection = topojson.feature(world, world.objects.countries),
-          geometries = maptalks.GeoJSON.toGeometry(featureCollection);
-        var symbol = {
-          'lineColor' : '#fff',
-          'lineWidth' : 0.5,
-          'polygonOpacity' : 1,
-          'polygonFill'    : '#747474'
-        };
-        new maptalks.VectorLayer('v', geometries, { 'geometryEvents':false, 'enableSimplify':false })
-          .forEach(function (geo) {
-            geo.setSymbol(symbol);
-          })
-          .addTo(map);
-      });
-
-    </script>
-
+      </script>
 
         <!--Side Navigation content-->
 
