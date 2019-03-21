@@ -172,11 +172,11 @@ html, body{
            .append("div").attr("class", "node")
             .style("background-image", function(d){ return "url(" + d.data.img + ")";});
 
-        node.merge(newNode)
+       node.merge(newNode)
             .transition()
             .duration(1000)
             .style("left", function(d) { return d.x0 + "px" ;})
-            .style("top", function(d) { return (d.y0 + "px") / 2 ;})
+            .style("top", function(d) { return d.y0 + "px" ;})
             .style("width", function(d) { return (d.x1 - d.x0) + "px" ;})
             .style("height", function(d) { return (d.y1 - d.y0) + "px" ;});
 
