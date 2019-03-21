@@ -28,7 +28,7 @@
         <link href="jquery.fancybox.min.css" rel="stylesheet" type="text/css"/>
         <!--Integration of Instagram, Facebook, and GitHub icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="world-50m.json" type="text/javascript"></script>
+        <script src="https://raw.githubusercontent.com/d3/d3.github.com/master/world-50m.v1.json" type="text/javascript"></script>
         <script src="d3.v4.min.js"></script>
       <script src="d3-geo-projection.v2.min.js"></script>
       <script src="d3-array.v1.min.js"></script>
@@ -103,7 +103,7 @@
 </style>
 
 
-    <script src="world-50m.json" type="text/javascript"></script>
+    <script src="https://raw.githubusercontent.com/d3/d3.github.com/master/world-50m.v1.json" type="text/javascript"></script>
         <script src="d3.v4.min.js"></script>
       <script src="d3-geo-projection.v2.min.js"></script>
       <script src="d3-array.v1.min.js"></script>
@@ -139,7 +139,7 @@ var path = d3.geoPath()
 
 
 
-  d3.json("world-50m.json", function(error, world) {
+  d3.json("https://raw.githubusercontent.com/d3/d3.github.com/master/world-50m.v1.json", function(error, world) {
   if (error) throw error;
 
   var land = topojson.feature(world, world.objects.land),
