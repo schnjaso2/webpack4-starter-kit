@@ -29,7 +29,8 @@
         <!--Integration of Instagram, Facebook, and GitHub icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks/dist/maptalks.min.js"></script>
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/colorbrewer.v1.min.js"></script>
 
     </head>
 
@@ -102,18 +103,26 @@
 <script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script>
-var width = 960,
+  function satelliteMap() {
+    queue()
+    .defer(d3.json, "world_50m.json")
+    .defer(d3.csv, "ctrydata.csv")
+    .await(function(error, file1, file2) { createMap(file1, file2); });
+  function createMap(countries, cities) {
+    expData = countries;
+    var width = 960,
     height = 580;
-var color = d3.scale.category10();
-var projection = d3.geo.Satellite()
-    .scale(5500)
+    var color = d3.scale.category10();
+    var projection = d3.geo.Satellite()
+    .scale(1152)
     .translate([width / 2, height / 2])
     .center([-2, -1])
     .rotate([76, -34, 32])
-    .tilt(25)
-    .distance(1.1)
+    .tilt(35.000000000000064)
+    .distance(1.0999999999999996)
     .clipAngle(Math.acos(1 / 1.1) * 180 / Math.PI)
-    .precision(.1);
+     geoPath = d3.geo.path().projection(projection);
+
 var path = d3.geo.path()
     .projection(projection);
 var graticule = d3.geo.graticule();
