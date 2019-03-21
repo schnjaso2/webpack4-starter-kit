@@ -128,7 +128,7 @@ html, body{
         var treemap = d3.treemap()
             .tile(d3.treemapBinary)
             .size([width, height])
-            .padding(1)
+            .padding(.1)
             .round(true);
 
         treemap(root);
