@@ -131,7 +131,7 @@ var path = d3.geoPath()
 
 
 
-  var land = topojson.feature(topo, topo.objects.land),
+  var land = topojson.feature(topo, topo.objects.countries),
       globe = {type: "Sphere"};
 
   d3.timer(function(elapsed) {
