@@ -131,7 +131,10 @@ var path = d3.geoPath()
 
 
 
-  var land = topojson.feature(topo.objects.land),
+  d3.json("https://storage.googleapis.com/jasonschneider.appspot.com/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  var land = topojson.feature(world, world.objects.land),
       globe = {type: "Sphere"};
 
   d3.timer(function(elapsed) {
