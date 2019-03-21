@@ -114,7 +114,7 @@
     radius = diameter / 2,
     velocity = 0.01;
 
-var projection = d3.geoOrthographic()
+var projection = d3.geoLagrange()
     .scale(radius - 2)
     .translate([radius, radius])
     .clipAngle(90)
