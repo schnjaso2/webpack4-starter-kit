@@ -105,9 +105,14 @@
 var width = 960,
     height = 580;
 var color = d3.scale.category10();
-var projection = d3.geo.kavrayskiy7()
-    .scale(170)
+var projection = d3.geo.Satellite()
+    .scale(5500)
     .translate([width / 2, height / 2])
+    .center([-2, -1])
+    .rotate([76, -34, 32])
+    .tilt(25)
+    .distance(1.1)
+    .clipAngle(Math.acos(1 / 1.1) * 180 / Math.PI)
     .precision(.1);
 var path = d3.geo.path()
     .projection(projection);
