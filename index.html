@@ -114,8 +114,8 @@
     radius = diameter / 2,
     velocity = 0.01;
 
-var projection = d3.geoSatellite()
-    .scale(radius x 2)
+var projection = d3.geoVanDerGrinten4()
+    .scale(radius - 2)
     .translate([radius, radius])
     .clipAngle(90)
     .precision(0);
