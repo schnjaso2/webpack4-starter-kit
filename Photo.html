@@ -88,7 +88,7 @@ html, body{
         {id:"root.3",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/13p.png"},
         {id:"root.4",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/13photo.png"},
         {id:"root.5",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/13s.png"},
-        (id:"root.6",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/13t.png"},
+        {id:"root.6",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/13t.png"},
         {id:"root.7",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/13u.png"},
         {id:"root.8",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/14h.png"},
         {id:"root.9",value:null,img:"https://storage.googleapis.com/jasonschneider.appspot.com/photo/14l.png"},
@@ -127,7 +127,7 @@ html, body{
     function randomize() {
         data.filter(function(d){ return d.id !== "root" ; })
             .forEach(function(d){
-                d.value = ~~(d3.randomUniform(1, 100)());
+                d.value = ~~(d3.randomUniform(1, 30)());
             });
     }
 
