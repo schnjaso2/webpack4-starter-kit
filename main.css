@@ -93,6 +93,7 @@ nav ul li a
 nav ul li a:hover, .offcanvas a:focus
 {
     color: #666;
+    opacity: .5
 }
 
 /* Affects the link property of the heading of the nav bar
