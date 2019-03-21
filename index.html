@@ -109,7 +109,7 @@
       <script src="d3-array.v1.min.js"></script>
 <script src="topojson.v1.min.js"></script>
 <script>
-  var topo = "world-50m.json"
+
  var diameter = 960 / 3,
     radius = diameter / 2,
     velocity = 0.01;
@@ -139,7 +139,7 @@ var path = d3.geoPath()
 
 
 
-  d3.json("https://storage.googleapis.com/jasonschneider.appspot.com/world-50m.json", function(error, world) {
+  d3.json("world-50m.json", function(error, world) {
   if (error) throw error;
 
   var land = topojson.feature(world, world.objects.land),
