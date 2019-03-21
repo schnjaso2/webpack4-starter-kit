@@ -24,7 +24,7 @@ body
     background-color: #111;
     margin: 0;
     padding: 0;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, italic;
 }
 
 /* Affects the side navigation
@@ -100,6 +100,11 @@ nav ul li a:hover, .offcanvas a:focus
 /* Affects the link property of the heading of the nav bar
  * removes its link properties by chaning colour and removing text decoration
  */
+a:hover nav
+{
+
+  opacity: .77;
+}
 
 h1 a
 {
@@ -199,7 +204,7 @@ img
  * increases the image size by 0.05 and creates a cool effect
  */
 
-a:hover nav
+a:hover img
 {
 
   opacity: .77;
@@ -216,6 +221,7 @@ a:hover nav
         padding-top: 7px;
         transform: translate3d(-200px, 0, 0);
         transition: transform 0.4s ease;
+        opacity: .77;
     }
     nav h1
     {
@@ -275,11 +281,13 @@ a:hover nav
     .active-nav nav
     {
         transform: translate3d(0,0,0);
+        opacity: .77;
     }
 
     .active-nav .content
     {
         transform: translate3d(200px, 0, 0);
+        opacity: .77;
     }
 
     #main
