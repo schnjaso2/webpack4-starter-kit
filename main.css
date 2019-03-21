@@ -94,7 +94,7 @@ nav ul li a
 nav ul li a:hover, .offcanvas a:focus
 {
     color: #666;
-    opacity: .5
+    opacity: .75
 }
 
 /* Affects the link property of the heading of the nav bar
@@ -199,10 +199,10 @@ img
  * increases the image size by 0.05 and creates a cool effect
  */
 
-a:hover img
+a:hover nav
 {
-  transform: scale(1.05);
-  opacity: .7;
+
+  opacity: .77;
 }
 
 /*
