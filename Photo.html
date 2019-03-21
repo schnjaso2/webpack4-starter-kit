@@ -127,7 +127,7 @@ html, body{
     function randomize() {
         data.filter(function(d){ return d.id !== "root" ; })
             .forEach(function(d){
-                d.value = ~~(d3.randomUniform(1, 30)());
+                d.value = ~~(d3.randomUniform(1, 10)());
             });
     }
 
