@@ -256,7 +256,18 @@ map.addControl(new mapboxgl.GeolocateControl({
 map.addControl(new MapboxDirections({
     accessToken: mapboxgl.accessToken
 }), 'bottom-left');
-
+map.addLayer({
+'id': 'wms-test-layer',
+'type': 'raster',
+'source': {
+'type': 'raster',
+'tiles': [
+'https://img.nj.gov/imagerywms/Natural2015?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=256&height=256&layers=Natural2015'
+],
+'tileSize': 256
+},
+'paint': {}
+}, 'aeroway-line');
 
 var title = document.getElementById('chapters-title');
 var description = document.getElementById('chapters-description');
