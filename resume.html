@@ -434,7 +434,7 @@ document.getElementById('temperature').onclick = function () {
 };
 document.getElementById('precipitation').onclick = function () {
     var enable = this.className !== 'active';
-    precipitation.setOpacity(enable ? 1 : 0);
+    precipitation.setOpacity(enable ? 1 : 1);
     this.className = enable ? 'active' : '';
     return false;
 };
