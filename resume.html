@@ -228,7 +228,24 @@ var map = new mapboxgl.Map({
         speed: 0.8,
         pitch: 33
 });
-
+var precipitation = L.tileLayer.wms("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs", {
+    format: 'image/png',
+    transparent: true,
+    layers: 'RAS_RIDGE_NEXRAD'
+}).addTo(map);
+// Layer switcher
+document.getElementById('temperature').onclick = function () {
+    var enable = this.className !== 'active';
+    temperature.setOpacity(enable ? 1 : 0);
+    this.className = enable ? 'active' : '';
+    return false;
+};
+document.getElementById('precipitation').onclick = function () {
+    var enable = this.className !== 'active';
+    precipitation.setOpacity(enable ? 1 : 0);
+    this.className = enable ? 'active' : '';
+    return false;
+};
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
 });
@@ -417,24 +434,7 @@ function isElementOnScreen(id) {
     var bounds = element.getBoundingClientRect();
     return bounds.top < window.innerHeight && bounds.bottom > 0;
 }
-var precipitation = L.tileLayer.wms("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs", {
-    format: 'image/png',
-    transparent: true,
-    layers: 'RAS_RIDGE_NEXRAD'
-}).addTo(map);
-// Layer switcher
-document.getElementById('temperature').onclick = function () {
-    var enable = this.className !== 'active';
-    temperature.setOpacity(enable ? 1 : 0);
-    this.className = enable ? 'active' : '';
-    return false;
-};
-document.getElementById('precipitation').onclick = function () {
-    var enable = this.className !== 'active';
-    precipitation.setOpacity(enable ? 1 : 0);
-    this.className = enable ? 'active' : '';
-    return false;
-};
+
 </script>
 
 </body>
