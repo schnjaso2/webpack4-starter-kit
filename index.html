@@ -202,7 +202,7 @@ svg.append("path")
     .datum(graticule)
     .attr("class", "graticule")
     .attr("d", path);
-d3.json("world-110m.json", function(error, world) {
+d3.json("globcostgrid.geojson", function(error, world) {
   if (error) throw error;
   svg.insert("path", ".graticule")
       .datum(topojson.feature(world, world.objects.land))
