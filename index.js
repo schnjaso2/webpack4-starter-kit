@@ -66,7 +66,7 @@ function getLightData(image, size) {
     }
     return ret;
 }
-let currentImage = null;
+let currentImage = jps;
 async function prepare(source) {
     if (source === currentImage) {
         return;
