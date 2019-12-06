@@ -11,8 +11,9 @@ module.exports = {
 console.clear();
 
 let sources = [
-    { name: 'jps', url: 'https://s.gravatar.com/avatar/ed18530532560e244aa34faa73b1b389?s=150' },
-
+    { name: 'jason', url: 'https://s.gravatar.com/avatar/ed18530532560e244aa34faa73b1b389?s=150' },
+ { name: 'phillip', url: 'https://s.gravatar.com/avatar/ed18530532560e244aa34faa73b1b389?s=150' },
+   { name: 'schneider', url: 'https://s.gravatar.com/avatar/ed18530532560e244aa34faa73b1b389?s=150' },
 ];
 
 let c = document.getElementById('c');
