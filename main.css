@@ -10024,6 +10024,16 @@ sourceMappingURL=main.59146ed4136dea1354e8c47a6061f793.css.map
   box-shadow:0 0 0px 3px rgba(0,0,0,0.2);
   opacity:0.3
 }#btn-twtr:hover{color:#fff;opacity:1}
+body {
+	overflow: hidden;
+	background: #333;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+	font-size: 14px;
+}
+
 .controls {
 	position: fixed;
 	top: 4px;
