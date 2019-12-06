@@ -7630,33 +7630,7 @@ body .dqpl-hidden,body .dqpl-hide {
 body .dqpl-pointer {
     cursor: pointer
 }
-html, body { height: 100%; }
-body {
-	overflow: hidden;
-	background: #333;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
-	font-size: 14px;
-}
 
-.controls {
-	position: fixed;
-	top: 4px;
-	left: 8px;
-	color: #fff;
-}
-
-.line {
-	display: block;
-	padding: 6px 0;
-	span {
-		display: inline-block;
-		width: 100px;
-		vertical-align: middle;
-	}
-}
 
 @mixin thumb {
 	appearance: none;
@@ -10024,7 +9998,6 @@ p .dqpl-link {
 }
 
 /*# sourceMappingURL=main.59146ed4136dea1354e8c47a6061f793.css.map*/
-html,body{height:100%;max-width:100%;margin:0;overflow:hidden;background:rgba(0,10,20,1) url(https://i.imgur.com/r838U7u.jpg) center no-repeat;background-size:cover;image-rendering: pixelated; font-family:sans-serif}
 #space{width:100%}
 #warp{position:absolute;z-index:9;bottom:0;left:0;right:0;margin:20px auto;color:rgba(209, 255, 255,1);border:2px solid;padding:1em;width:10em;text-align:center;font-weight:700;font-size:1.2em;display:inline-block;text-decoration:none;background:rgba(0,0,0,0.8)}
 
