@@ -1,0 +1,24 @@
+Privacy Policy of jasonschneider.net
+This Application collects some Personal Data from its Users.
+
+Personal Data collected for the following purposes and using the following services:
+Displaying content from external platforms
+Mapbox widget
+Personal Data: Cookies; Usage Data
+
+Registration and authentication
+Google OAuth
+Personal Data: various types of Data as specified in the privacy policy of the service
+
+Contact information
+Owner and Data Controller
+4655 Bristol Blvd
+Eagan, MN 55123
+
+Owner contact email: jason.phillip.schneider@gmail.com
+
+Latest update: July 16, 2020
+
+iubenda hosts this content and only collects the Personal Data strictly necessary for it to be provided.
+
+2020
