@@ -10,12 +10,6 @@
 
 
 
-`A thousand words will not leave so deep an impression as one deed.` - Henrik Ibsen 
-Hello and thank you for stopping by.
-I am a multi-faceted creator of dynamic and cathartic content across a wide spectrum of media formats.
-I have had the great fortune to be able to live and work all over this earth, and have truly cherished the collaborations I have facilitated along the way. 
-Have a look to see where I've been and what I've been up to over the years... 
-(p.s. the traffic data is real-time and provided by mapbox in case you happened to be wondering about the road conditions :)
 Bryant-Lake Bowl // Minneapolis, Minnesota
 Theater Technician
 2007.07.01 - 2008.10.01
@@ -139,3 +133,4 @@ B.A. Theater, `07
 University of Minnesota
 Partial Completion
 Masters of Geographic Information Science Program
+
